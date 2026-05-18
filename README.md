@@ -90,4 +90,28 @@ Use this flow to present PayPalm to evaluators:
 5.  **Access the Admin Dashboard:** Click the padlock button in the header, input `admin@paypalm.com` / `admin_paypalm`, inspect the newly logged details, filter the rows in real-time, and hit **Export CSV** to demonstrate the Excel-ready spreadsheet export.
 
 ---
+
+## ☁️ Deployment Guide (Vercel & GitHub)
+
+The portal is set up for hosting on **Vercel** and integrated with **GitHub**. Choose one of the following methods to redeploy changes:
+
+### Method A: Automated Continuous Deployment (Recommended) ⚡
+1.  Go to your **[Vercel Project Git Settings Dashboard](https://vercel.com/muhammad-abdullahs-projects-4135869a/paypalm_deploy/settings/git)**.
+2.  Click **Connect** under Git Integration, and choose your repository: **`Muhammad-Abdullah30/paypalm_deploy`**.
+3.  Once connected, any changes you push to GitHub will automatically trigger Vercel to redeploy the live website in seconds:
+    ```bash
+    git add .
+    git commit -m "feat: your update message"
+    git push
+    ```
+
+### Method B: Manual Command-Line Deployment 💻
+If you prefer not to link your GitHub or want to push local changes directly from your terminal:
+1.  Open your terminal in this directory and run:
+    ```bash
+    npx vercel --prod --yes
+    ```
+2.  This command will bypass the heavy 117MB APK (using [.vercelignore](file:///c:/Users/PMLS/Documents/paypalm_deploy/.vercelignore)), upload your source code, and update your live URL **[paypalmdeploy.vercel.app](https://paypalmdeploy.vercel.app)** instantly!
+
+---
 *Developed under academic supervision for the Air University Creative Technologies Initiative.*
