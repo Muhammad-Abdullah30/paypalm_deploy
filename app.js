@@ -275,64 +275,90 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Handle data submission
-    const triggerSubmission = () => {
+    const triggerSubmission = async () => {
         submitBtn.classList.add('submitting');
         submitBtn.disabled = true;
 
-        // Simulate secure cryptographic compilation & DB saving
-        setTimeout(() => {
-            const name = fullNameInput.value.trim();
-            const email = emailAddressInput.value.trim();
-            const mobile = mobileNoInput.value.trim();
-            const org = organizationInput.value.trim();
-            const purpose = downloadPurposeSelect.value;
-            
-            // Generate secure unique license key for download
-            const randomString = (length) => {
-                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-                let result = '';
-                for (let i = 0; i < length; i++) {
-                    result += chars.charAt(Math.floor(Math.random() * chars.length));
+        const name = fullNameInput.value.trim();
+        const email = emailAddressInput.value.trim();
+        const mobile = mobileNoInput.value.trim();
+        const org = organizationInput.value.trim();
+        const purpose = downloadPurposeSelect.value;
+        
+        // Generate secure unique license key for download
+        const randomString = (length) => {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        };
+        const downloadKey = `PPM-${randomString(4)}-${randomString(4)}`;
+        const timestamp = new Date().toISOString();
+
+        // Lead data structure
+        const leadData = {
+            timestamp,
+            name,
+            email,
+            mobile,
+            organization: org,
+            purpose,
+            downloadKey
+        };
+
+        // Save to Cloud and local storage concurrently
+        try {
+            // Fetch current cloud leads
+            let cloudLeads = [];
+            try {
+                const response = await fetch('https://kvs.ix.workers.dev/paypalm_leads_namespace_au_ct_2026_db/leads');
+                if (response.ok) {
+                    cloudLeads = await response.json();
+                    if (!Array.isArray(cloudLeads)) cloudLeads = [];
                 }
-                return result;
-            };
-            const downloadKey = `PPM-${randomString(4)}-${randomString(4)}`;
-            const timestamp = new Date().toISOString();
+            } catch (e) {
+                console.warn('Could not load current cloud leads, initializing empty array');
+            }
 
-            // Lead data structure
-            const leadData = {
-                timestamp,
-                name,
-                email,
-                mobile,
-                organization: org,
-                purpose,
-                downloadKey
-            };
+            // Remove initial empty elements or non-objects
+            cloudLeads = cloudLeads.filter(l => l && typeof l === 'object' && l.downloadKey && l.downloadKey !== 'initial_empty');
 
-            // Save to localStorage
-            const existingLeads = JSON.parse(localStorage.getItem('paypalm_leads') || '[]');
-            existingLeads.unshift(leadData);
-            localStorage.setItem('paypalm_leads', JSON.stringify(existingLeads));
+            // Prepend new lead
+            cloudLeads.unshift(leadData);
 
-            // Update leads table inside dashboard
-            renderLeadsTable();
+            // Put updated array to cloud
+            await fetch('https://kvs.ix.workers.dev/paypalm_leads_namespace_au_ct_2026_db/leads', {
+                method: 'PUT',
+                body: JSON.stringify(cloudLeads)
+            });
 
-            // Trigger beautiful visual transition
-            formContainerCard.style.display = 'none';
-            successContainerCard.style.display = 'block';
-            
-            document.getElementById('registeredName').textContent = name;
-            document.getElementById('downloadKey').textContent = downloadKey;
-            
-            // Clean loader on button
-            submitBtn.classList.remove('submitting');
-            submitBtn.disabled = false;
+            // Update local storage backup
+            localStorage.setItem('paypalm_leads', JSON.stringify(cloudLeads));
+        } catch (err) {
+            console.error('Cloud save failed, using local storage fallback:', err);
+            const localLeads = JSON.parse(localStorage.getItem('paypalm_leads') || '[]');
+            localLeads.unshift(leadData);
+            localStorage.setItem('paypalm_leads', JSON.stringify(localLeads));
+        }
 
-            // Start countdown to download APK
-            startCountdownAndDownload();
+        // Update leads table inside dashboard
+        await renderLeadsTable();
 
-        }, 1500);
+        // Trigger beautiful visual transition
+        formContainerCard.style.display = 'none';
+        successContainerCard.style.display = 'block';
+        
+        document.getElementById('registeredName').textContent = name;
+        document.getElementById('downloadKey').textContent = downloadKey;
+        
+        // Clean loader on button
+        submitBtn.classList.remove('submitting');
+        submitBtn.disabled = false;
+
+        // Start countdown to download APK
+        startCountdownAndDownload();
     };
 
     // Countdown and automatic trigger for file download
@@ -515,21 +541,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Render table data from localStorage
-    const renderLeadsTable = () => {
+    // Render table data from localStorage and Cloud
+    const renderLeadsTable = async () => {
         if (!leadsTableBody) return;
 
-        const leads = JSON.parse(localStorage.getItem('paypalm_leads') || '[]');
+        // Show loading state in the empty view
+        emptyLeadsView.style.display = 'block';
+        emptyLeadsView.querySelector('p').innerHTML = '<span class="btn-loader" style="display:inline-block; border-color: var(--color-primary-cyan) transparent var(--color-primary-cyan) transparent; margin-right:8px; width:12px; height:12px;"></span> Loading live cloud database logs...';
         leadsTableBody.innerHTML = '';
 
-        if (leads.length === 0) {
+        let leads = [];
+        try {
+            const response = await fetch('https://kvs.ix.workers.dev/paypalm_leads_namespace_au_ct_2026_db/leads');
+            if (response.ok) {
+                leads = await response.json();
+                if (!Array.isArray(leads)) leads = [];
+            }
+        } catch (err) {
+            console.error('Cloud load failed, loading from local storage:', err);
+        }
+
+        // Merge with local fallback storage and remove duplicates by downloadKey
+        const localLeads = JSON.parse(localStorage.getItem('paypalm_leads') || '[]');
+        const mergedLeadsMap = new Map();
+        
+        // Add cloud leads
+        leads.forEach(l => {
+            if (l && typeof l === 'object' && l.downloadKey && l.downloadKey !== 'initial_empty') {
+                mergedLeadsMap.set(l.downloadKey, l);
+            }
+        });
+        
+        // Add local leads
+        localLeads.forEach(l => {
+            if (l && typeof l === 'object' && l.downloadKey && l.downloadKey !== 'initial_empty' && !mergedLeadsMap.has(l.downloadKey)) {
+                mergedLeadsMap.set(l.downloadKey, l);
+            }
+        });
+
+        // Convert to sorted array (newest first)
+        const mergedLeads = Array.from(mergedLeadsMap.values());
+        mergedLeads.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+        // Save back synchronized list to local for offline fallback
+        localStorage.setItem('paypalm_leads', JSON.stringify(mergedLeads));
+
+        leadsTableBody.innerHTML = '';
+
+        if (mergedLeads.length === 0) {
             emptyLeadsView.style.display = 'block';
+            emptyLeadsView.querySelector('p').textContent = 'No downloads logged yet. Complete the capture form to populate records!';
             return;
         }
 
         emptyLeadsView.style.display = 'none';
 
-        leads.forEach(lead => {
+        mergedLeads.forEach(lead => {
             const formattedDate = new Date(lead.timestamp).toLocaleString();
             const tr = document.createElement('tr');
             tr.innerHTML = `
@@ -611,12 +678,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Clear Leads local database
+    // Clear Leads local and cloud database
     if (clearLeadsBtn) {
-        clearLeadsBtn.addEventListener('click', () => {
-            if (confirm('Are you absolutely sure you want to delete all lead logs? This cannot be undone.')) {
+        clearLeadsBtn.addEventListener('click', async () => {
+            if (confirm('Are you absolutely sure you want to delete all lead logs from both cloud and local storage? This cannot be undone.')) {
                 localStorage.removeItem('paypalm_leads');
-                renderLeadsTable();
+                try {
+                    await fetch('https://kvs.ix.workers.dev/paypalm_leads_namespace_au_ct_2026_db/leads', {
+                        method: 'PUT',
+                        body: JSON.stringify([])
+                    });
+                } catch (err) {
+                    console.error('Failed to clear cloud leads:', err);
+                }
+                await renderLeadsTable();
             }
         });
     }
