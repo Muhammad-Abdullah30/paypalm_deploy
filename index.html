@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPalm - Card-less, Device-free Biometric Palm Vein Payment Gateway</title>
+    <!-- Meta tags for premium SEO -->
+    <meta name="description" content="Discover PayPalm, the future of card-less, device-free payments. Harnessing secure contactless palm vein pattern biometrics integrated with a cloud-connected digital wallet. Developed by Air University's Department of Creative Technologies.">
+    <meta name="keywords" content="PayPalm, Biometric Payment, Palm Vein Recognition, Device-free, Card-less, Contactless Payment, Air University, Creative Technologies">
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Dynamic Glowing Ambient Background Blobs -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Sticky Glassmorphic Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-link" id="navLogo">
+                <!-- High-Fidelity SVG PayPalm Logo -->
+                <svg viewBox="0 0 280 80" class="paypalm-logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(5, 5)">
+                        <!-- Outer hand outline -->
+                        <path d="M 26 65 
+                                 C 21 65, 17 60, 17 54 
+                                 L 17 31 
+                                 C 17 27, 21 27, 21 31 
+                                 L 21 51 
+                                 C 21 55, 23 55, 23 51 
+                                 L 23 25 
+                                 C 23 21, 27 21, 27 25 
+                                 L 27 50 
+                                 C 27 54, 29 54, 29 50 
+                                 L 29 20 
+                                 C 29 16, 33 16, 33 20 
+                                 L 33 50 
+                                 C 33 54, 35 54, 35 50 
+                                 L 35 26 
+                                 C 35 22, 39 22, 39 26 
+                                 L 39 53 
+                                 C 39 56, 40 58, 42 58 
+                                 C 46 58, 50 55, 55 49 
+                                 C 60 43, 63 37, 61 33 
+                                 C 60 29, 55 31, 56 36 
+                                 C 57 41, 53 49, 49 54 
+                                 C 45 59, 40 63, 35 65 
+                                 C 32 66, 28 66, 26 65 Z" 
+                              stroke="#00f2fe" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        
+                        <!-- Interlocking Spiral Palm Vein Patterns -->
+                        <path d="M 29 57 C 27 55, 26 51, 28 47 C 29 44, 33 43, 36 44 C 39 45, 40 49, 39 52 C 38 55, 34 56, 31 54 C 28 53, 27 49, 29 45 C 30 42, 35 40, 39 42" 
+                              stroke="#7f00ff" stroke-width="2.5" stroke-linecap="round" />
+                        <path d="M 35 51 C 36 53, 37 57, 36 60 C 35 64, 31 65, 28 63 C 25 62, 24 58, 25 55 C 27 52, 31 51, 34 53 C 37 54, 38 59, 36 62 C 35 66, 30 67, 26 65" 
+                              stroke="#00f2fe" stroke-width="2.5" stroke-linecap="round" />
+                    </g>
+                    <!-- Brand Typography matching logo weight -->
+                    <text x="85" y="42" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="700" font-size="28px" letter-spacing="0.5px">Pay</text>
+                    <text x="85" y="66" fill="#00f2fe" font-family="'Outfit', sans-serif" font-weight="700" font-size="28px" letter-spacing="0.5px">Palm</text>
+                </svg>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="nav-links">
+                <a href="#about" class="nav-item">About</a>
+                <a href="#technology" class="nav-item">Technology</a>
+                <a href="#biometric-scan" class="nav-item">Scan Demo</a>
+                <a href="#team" class="nav-item">Team</a>
+                <a href="#download" class="btn btn-secondary nav-cta">Get APK</a>
+                <button class="admin-trigger-btn" id="adminToggle" title="Open Admin Leads Panel">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </button>
+            </nav>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="section-container hero-grid">
+                <div class="hero-text-content">
+                    <span class="badge">Next-Gen Biometric Wallet</span>
+                    <h1>Card-less. Device-free. <br><span class="gradient-text">Unbreakably Secure.</span></h1>
+                    <p class="hero-lead">
+                        Traditional payment systems are plagued by fraud, stolen devices, and hygienic issues. 
+                        <strong>PayPalm</strong> revolutionizes commerce by utilizing secure palm vein pattern recognition, 
+                        connecting your unique biology directly to a cloud digital wallet for seamless, contactless transactions.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#download" class="btn btn-primary">Download APK</a>
+                        <a href="#biometric-scan" class="btn btn-outline">Try Scanner Simulator</a>
+                    </div>
+                </div>
+
+                <!-- 3D/Interactive Scanner Area -->
+                <div class="hero-visual">
+                    <div class="scanner-wrapper">
+                        <div class="scanner-glow-circle"></div>
+                        <div class="visual-scanner" id="heroScanner">
+                            <div class="scan-laser"></div>
+                            
+                            <!-- Custom Hand SVG inside the Scanning Terminal -->
+                            <svg viewBox="0 0 160 200" class="scanner-hand-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Hand silhouette -->
+                                <path class="hand-contour" d="M 60 180 
+                                         C 50 180, 42 170, 42 158 
+                                         L 42 100 
+                                         C 42 90, 50 90, 50 100 
+                                         L 50 140 
+                                         C 50 148, 54 148, 54 140 
+                                         L 54 85 
+                                         C 54 75, 63 75, 63 85 
+                                         L 63 138 
+                                         C 63 146, 67 146, 67 138 
+                                         L 67 75 
+                                         C 67 65, 76 65, 76 75 
+                                         L 76 138 
+                                         C 76 146, 80 146, 80 138 
+                                         L 80 88 
+                                         C 80 78, 89 78, 89 88 
+                                         L 89 144 
+                                         C 89 150, 92 154, 96 154 
+                                         C 105 154, 114 148, 124 134 
+                                         C 134 120, 140 106, 136 98 
+                                         C 134 90, 122 94, 124 105 
+                                         C 126 116, 118 132, 110 142 
+                                         C 102 152, 92 161, 80 165 
+                                         C 74 167, 66 167, 60 180 Z" 
+                                      stroke="rgba(255,255,255,0.2)" stroke-width="2.5" />
+                                
+                                <!-- Vein lines that glow when scanned -->
+                                <g class="glowing-veins">
+                                    <path d="M 64 165 C 60 160, 58 150, 62 140 C 66 130, 76 128, 84 132 C 92 136, 94 144, 90 152 C 86 160, 78 162, 70 158 C 64 156, 62 148, 66 140 C 70 134, 80 130, 88 134" stroke="#00f2fe" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M 76 148 C 78 152, 80 160, 76 166 C 72 172, 62 174, 54 170 C 46 166, 44 158, 46 152 C 50 144, 58 142, 66 146 C 74 150, 76 160, 72 166 C 68 172, 58 174, 48 170" stroke="#7f00ff" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M 65 140 Q 75 110 56 95" stroke="#00f2fe" stroke-width="1.5" stroke-dasharray="2 2" />
+                                    <path d="M 75 140 Q 82 105 87 88" stroke="#7f00ff" stroke-width="1.5" stroke-dasharray="2 2" />
+                                    <path d="M 52 148 Q 50 120 44 110" stroke="#00f2fe" stroke-width="1.5" stroke-dasharray="2 2" />
+                                    <path d="M 88 148 Q 110 130 122 112" stroke="#7f00ff" stroke-width="1.5" stroke-dasharray="2 2" />
+                                </g>
+                            </svg>
+
+                            <div class="scanner-hud">
+                                <span class="hud-title">BIOMETRIC READER v1.0</span>
+                                <span class="hud-status" id="heroScannerStatus">PLACE HAND TO TEST</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem & Solution Section -->
+        <section class="about-section" id="about">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="badge">The Evolution of Commerce</span>
+                    <h2>Redefining Security and Usability</h2>
+                    <p class="section-desc">Why traditional payment systems fail, and how PayPalm creates an unbreakable transaction network using your unique anatomy.</p>
+                </div>
+
+                <div class="grid grid-2 about-grid">
+                    <!-- Column 1: The Problem -->
+                    <div class="card glass-card problem-card">
+                        <div class="card-icon coral-glow">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#ff5e62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+                            </svg>
+                        </div>
+                        <h3>Traditional Payment Vulnerabilities</h3>
+                        <p class="card-intro">Physical cards and smartphone systems harbor severe real-world operational bottlenecks:</p>
+                        <ul class="features-list">
+                            <li>
+                                <strong>Fraud & Identity Theft:</strong> Card cloning, skimmed magnetic strips, and intercepted digital credentials cause billions in annual losses.
+                            </li>
+                            <li>
+                                <strong>Loss & Theft of Devices:</strong> Physical wallets get misplaced. Smart devices can be stolen, damaged, or suffer from depleted batteries.
+                            </li>
+                            <li>
+                                <strong>Hygiene & Contact Concerns:</strong> Shared PIN pads and contact-based fingerprint scanners pose serious public health risks.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 2: The Solution -->
+                    <div class="card glass-card solution-card">
+                        <div class="card-icon cyan-glow">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3>The PayPalm Breakthrough</h3>
+                        <p class="card-intro">A device-free, contact-less system linking vein pattern biometrics to cloud wallets:</p>
+                        <ul class="features-list">
+                            <li>
+                                <strong>Contactless Palm Vein Recognition:</strong> Near-infrared scan maps internal vein paths. 100% contactless, sterile, and non-invasive.
+                            </li>
+                            <li>
+                                <strong>Truly Device-Free:</strong> No cards, no smartphones, no physical tokens. Your unique vascular blueprint is your signature.
+                            </li>
+                            <li>
+                                <strong>Cloud-Connected Digital Wallet:</strong> Biometric templates translate into cryptographic tokens validated in the cloud instantly.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section class="tech-section" id="technology">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="badge">Advanced Engineering</span>
+                    <h2>Security Embedded in Your Biology</h2>
+                    <p class="section-desc">Palm vein patterns are highly complex, unique to individuals, and completely internal, making them impossible to replicate.</p>
+                </div>
+
+                <div class="grid grid-3 tech-grid">
+                    <!-- Tech Block 1 -->
+                    <div class="tech-item glass-card">
+                        <div class="tech-num">01</div>
+                        <h3>Vascular Biometrics</h3>
+                        <p>Near-infrared light detects deoxygenated hemoglobin in the palm veins. This absorbs the light, mapping out a unique dark pattern of lines captured securely in milliseconds.</p>
+                    </div>
+
+                    <!-- Tech Block 2 -->
+                    <div class="tech-item glass-card">
+                        <div class="tech-num">02</div>
+                        <h3>Cryptographic Hashing</h3>
+                        <p>Captured maps are immediately vectorized and hashed into complex mathematical keys. The original palm image is never stored in the database, ensuring absolute personal privacy.</p>
+                    </div>
+
+                    <!-- Tech Block 3 -->
+                    <div class="tech-item glass-card">
+                        <div class="tech-num">03</div>
+                        <h3>Secure Cloud Enclave</h3>
+                        <p>Hashed tokens are authenticated against a digital wallet in a highly secure cloud enclave. The merchant terminal never gains access to financial credentials or biometric keys.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Biometric Scan Demo -->
+        <section class="demo-section" id="biometric-scan">
+            <div class="section-container">
+                <div class="grid grid-2 demo-grid">
+                    <div class="demo-text">
+                        <span class="badge">Live Simulator</span>
+                        <h2>Interactive Palm Scanner</h2>
+                        <p>
+                            Experience the frictionless checkout flow of PayPalm. Hover or hold your mouse/finger on the scanner surface on the right. 
+                            Watch the high-frequency near-infrared laser read the internal vascular layout of the simulated hand.
+                        </p>
+                        <div class="scan-timeline">
+                            <div class="timeline-step" id="step1">
+                                <div class="step-dot"></div>
+                                <div class="step-text"><strong>1. Position Hand:</strong> Bring your palm within 5cm of the reader.</div>
+                            </div>
+                            <div class="timeline-step" id="step2">
+                                <div class="step-dot"></div>
+                                <div class="step-text"><strong>2. Near-IR Mapping:</strong> Hemoglobin light absorption captures the vein blueprint.</div>
+                            </div>
+                            <div class="timeline-step" id="step3">
+                                <div class="step-dot"></div>
+                                <div class="step-text"><strong>3. Cloud Wallet Match:</strong> Cryptographic handshake completes transaction safely.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-scanner-container">
+                        <div class="scan-device-frame">
+                            <div class="scanner-plate" id="interactiveScanner">
+                                <div class="sweep-line"></div>
+                                <div class="scanner-crosshairs"></div>
+                                
+                                <!-- Detailed Hand and Vein Vector Map -->
+                                <svg viewBox="0 0 200 240" class="vector-hand-demo" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Hand silhouette -->
+                                    <path class="demo-hand-contour" d="M 80 220
+                                             C 65 220, 55 208, 55 194
+                                             L 55 120
+                                             C 55 108, 65 108, 65 120
+                                             L 65 170
+                                             C 65 180, 70 180, 70 170
+                                             L 70 100
+                                             C 70 88, 80 88, 80 100
+                                             L 80 166
+                                             C 80 176, 85 176, 85 166
+                                             L 85 88
+                                             C 85 76, 96 76, 96 88
+                                             L 96 166
+                                             C 96 176, 101 176, 101 166
+                                             L 101 104
+                                             C 101 92, 112 92, 112 104
+                                             L 112 174
+                                             C 112 182, 116 186, 121 186
+                                             C 132 186, 143 179, 155 162
+                                             C 167 145, 174 128, 169 118
+                                             C 167 108, 152 113, 155 126
+                                             C 157 140, 147 159, 137 171
+                                             C 127 183, 115 194, 100 200
+                                             C 92 203, 85 203, 80 220 Z" 
+                                          stroke="rgba(255,255,255,0.15)" stroke-width="3" fill="none" />
+                                    
+                                    <!-- Elaborate, pulsing palm veins -->
+                                    <g class="demo-veins-glow">
+                                        <!-- Main arches -->
+                                        <path d="M 85 200 Q 82 170 65 155 Q 50 140 60 120" stroke="#00f2fe" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                        <path d="M 98 200 Q 102 165 118 152 Q 134 138 126 114" stroke="#7f00ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                        <!-- Minor branches -->
+                                        <path d="M 75 168 Q 85 150 82 120" stroke="#00f2fe" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+                                        <path d="M 90 162 Q 95 142 106 130" stroke="#7f00ff" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+                                        <path d="M 64 153 Q 58 135 60 128" stroke="#00f2fe" stroke-width="1.5" fill="none" opacity="0.6"/>
+                                        <path d="M 112 155 Q 120 144 121 138" stroke="#7f00ff" stroke-width="1.5" fill="none" opacity="0.6"/>
+                                    </g>
+                                </svg>
+                                
+                                <div class="scanner-pulse-ring"></div>
+                            </div>
+                            <div class="scanner-feed">
+                                <div class="feed-column">
+                                    <span class="feed-label">STATUS:</span>
+                                    <span class="feed-value text-glow-cyan" id="demoState">STANDBY</span>
+                                </div>
+                                <div class="feed-column">
+                                    <span class="feed-label">BIOMETRIC SIGNAL:</span>
+                                    <span class="feed-value text-glow-violet" id="demoSignal">0.0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download APK & Lead Form Section -->
+        <section class="download-section" id="download">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="badge">Deployment Ready</span>
+                    <h2>Download PayPalm APK</h2>
+                    <p class="section-desc">Experience the PayPalm interface on your mobile device. Register below to receive the secure Android Package (APK).</p>
+                </div>
+
+                <div class="download-card-wrapper">
+                    <!-- Glassmorphic Form Card -->
+                    <div class="card glass-card form-container-card" id="formContainerCard">
+                        <div class="form-header text-center">
+                            <h3>Access Download Portal</h3>
+                            <p>Provide your details to register and generate a personalized APK download payload.</p>
+                        </div>
+                        
+                        <form id="leadForm" novalidate>
+                            <div class="grid grid-2 form-grid">
+                                <!-- Name Input -->
+                                <div class="form-group">
+                                    <label for="fullName">Full Name <span class="required">*</span></label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="fullName" name="fullName" placeholder="e.g. John Doe" required>
+                                        <span class="input-glow"></span>
+                                    </div>
+                                    <span class="error-msg" id="nameError">Full Name is required.</span>
+                                </div>
+
+                                <!-- Email Input -->
+                                <div class="form-group">
+                                    <label for="emailAddress">Email Address <span class="required">*</span></label>
+                                    <div class="input-wrapper">
+                                        <input type="email" id="emailAddress" name="emailAddress" placeholder="e.g. john@example.com" required>
+                                        <span class="input-glow"></span>
+                                    </div>
+                                    <span class="error-msg" id="emailError">Enter a valid email address.</span>
+                                </div>
+
+                                <!-- Mobile Input -->
+                                <div class="form-group">
+                                    <label for="mobileNo">Mobile Number <span class="required">*</span></label>
+                                    <div class="input-wrapper">
+                                        <input type="tel" id="mobileNo" name="mobileNo" placeholder="e.g. +92 300 1234567" required>
+                                        <span class="input-glow"></span>
+                                    </div>
+                                    <span class="error-msg" id="mobileError">Enter a valid phone number.</span>
+                                </div>
+
+                                <!-- Organization Input -->
+                                <div class="form-group">
+                                    <label for="organization">Organization / University <span class="required">*</span></label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="organization" name="organization" placeholder="e.g. Air University" required>
+                                        <span class="input-glow"></span>
+                                    </div>
+                                    <span class="error-msg" id="orgError">Organization is required.</span>
+                                </div>
+                            </div>
+
+                            <!-- Purpose / Dropdown Input -->
+                            <div class="form-group mt-4">
+                                <label for="downloadPurpose">Reason for Download <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <select id="downloadPurpose" name="downloadPurpose" required>
+                                        <option value="" disabled selected>Select your purpose...</option>
+                                        <option value="Evaluation">Testing & Commercial Evaluation</option>
+                                        <option value="Academic">Academic Research & Project Study</option>
+                                        <option value="Integration">Digital Wallet Integration Developer</option>
+                                        <option value="General">Personal Interest</option>
+                                    </select>
+                                    <span class="input-glow"></span>
+                                </div>
+                                <span class="error-msg" id="purposeError">Please select a reason.</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block mt-6" id="submitBtn">
+                                <span class="btn-text">Submit & Download APK</span>
+                                <span class="btn-loader"></span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Success State View (Hidden by default) -->
+                    <div class="card glass-card success-container-card text-center" id="successContainerCard">
+                        <div class="success-icon-wrapper">
+                            <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Registration Verified!</h3>
+                        <p class="success-lead">Thank you, <span id="registeredName" class="highlight-text">Guest</span>. Your request has been logged successfully.</p>
+                        
+                        <div class="download-box glass-card">
+                            <span class="download-label">YOUR SECURE DOWNLOAD KEY:</span>
+                            <span class="download-key" id="downloadKey">PPM-XXXX-XXXX</span>
+                            <p class="download-timer" id="timerText">Your download will start in <span id="countdown">3</span> seconds...</p>
+                        </div>
+
+                        <div class="success-buttons">
+                            <a href="#" class="btn btn-primary" id="triggerDownloadBtn">Download Manually</a>
+                            <button class="btn btn-outline" id="resetFormBtn">Register Another Device</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Admin Dashboard Section (Toggleable) -->
+        <section class="admin-section hidden" id="adminDashboard">
+            <div class="section-container">
+                <div class="card glass-card admin-panel-card">
+                    <div class="admin-panel-header">
+                        <div>
+                            <h2>Leads Administration Panel</h2>
+                            <p>Real-time log of users who filled the capture form and downloaded the PayPalm APK.</p>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="btn btn-outline btn-sm" id="exportCsvBtn">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Export CSV
+                            </button>
+                            <button class="btn btn-coral btn-sm" id="clearLeadsBtn">Clear Logs</button>
+                            <button class="btn btn-secondary btn-sm" id="adminLogoutBtn">Logout</button>
+                        </div>
+                    </div>
+
+                    <!-- Search / Filter bar -->
+                    <div class="admin-search-bar mt-4">
+                        <input type="text" id="adminSearch" placeholder="Search by name, email, mobile or organization...">
+                    </div>
+
+                    <!-- Leads Grid Table -->
+                    <div class="admin-table-container mt-4">
+                        <table class="admin-table" id="leadsTable">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile No</th>
+                                    <th>Organization</th>
+                                    <th>Purpose</th>
+                                    <th>Download Key</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leadsTableBody">
+                                <!-- Injected dynamically by JS -->
+                            </tbody>
+                        </table>
+                        <div class="empty-leads-view text-center py-8" id="emptyLeadsView">
+                            <p>No downloads logged yet. Complete the capture form to populate records!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team & Mentor Section -->
+        <section class="team-section" id="team">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="badge">The Innovators</span>
+                    <h2>Meet the Development Team</h2>
+                    <p class="section-desc">The researchers and software engineers pioneering device-free biometric payment layers.</p>
+                </div>
+
+                <!-- Students Grid -->
+                <div class="grid grid-3 team-grid">
+                    <!-- Member 1: Muhammad Abdullah -->
+                    <div class="card glass-card team-card">
+                        <div class="team-avatar-wrapper">
+                            <div class="team-avatar-placeholder purple-glow">MA</div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Muhammad Abdullah</h3>
+                            <span class="team-role">Biometric Hardware Lead & AI Researcher</span>
+                            <p class="team-bio">Specialist in Near-Infrared imaging system design and convolutional architectures for vascular biometrics extraction.</p>
+                        </div>
+                    </div>
+
+                    <!-- Member 2: Muhammad Sohaib -->
+                    <div class="card glass-card team-card">
+                        <div class="team-avatar-wrapper">
+                            <div class="team-avatar-placeholder cyan-glow">MS</div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Muhammad Sohaib</h3>
+                            <span class="team-role">Lead Blockchain & Digital Wallet Architect</span>
+                            <p class="team-bio">Expert in high-throughput cloud wallets, cryptography enclaves, and low-latency transaction tokenization layers.</p>
+                        </div>
+                    </div>
+
+                    <!-- Member 3: Eman Ehsan -->
+                    <div class="card glass-card team-card">
+                        <div class="team-avatar-wrapper">
+                            <div class="team-avatar-placeholder orange-glow">EE</div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Eman Ehsan</h3>
+                            <span class="team-role">Full-Stack Cloud Developer & Android Lead</span>
+                            <p class="team-bio">Specialist in secure Android framework engineering, biometric integrations, and sleek, responsive UX/UI implementation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mentor Section (Differentiated Visual Hierarchy) -->
+                <div class="mentor-section mt-12">
+                    <div class="card glass-card mentor-card">
+                        <div class="mentor-content-wrapper">
+                            <div class="mentor-avatar-wrapper">
+                                <div class="mentor-avatar-placeholder gold-glow">DA</div>
+                            </div>
+                            <div class="mentor-info">
+                                <span class="badge gold-badge">Project Mentor</span>
+                                <h3>Dr. Adnan Aslam</h3>
+                                <span class="mentor-title">Senior Professor & Biometrics Director</span>
+                                <p class="mentor-bio">
+                                    Guiding PayPalm's technology vector and academic standards. Under Dr. Adnan Aslam's academic leadership, 
+                                    the project establishes industrial security benchmarks for contactless biometrics and cloud fintech protocols.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer containing academic affiliations & professional SVGs -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <!-- PayPalm Logo In Footer -->
+                    <span class="brand-word">Pay<span class="text-cyan">Palm</span></span>
+                </div>
+                <p>Advanced contactless vein-pattern payment gateway designed to eradicate physical payment risks.</p>
+            </div>
+
+            <!-- University & Department Logos section -->
+            <div class="footer-affiliations">
+                <span class="affil-title">Institutional Partners</span>
+                <div class="affil-logos-grid">
+                    
+                    <!-- Air University SVG Crest Logo -->
+                    <div class="logo-item" title="Air University, Pakistan">
+                        <svg viewBox="0 0 200 65" class="academic-logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Shield Crest Vector Representation -->
+                            <path d="M15 10 L30 5 L45 10 L45 35 C45 48, 30 56, 30 56 C30 56, 15 48, 15 35 Z" fill="#0b1a30" stroke="#00f2fe" stroke-width="2"/>
+                            <!-- Wings and Book Inside Crest -->
+                            <path d="M22 25 L38 25 M24 30 L36 30 M26 35 L34 35" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M30 15 L22 21 L30 23 L38 21 Z" fill="#00f2fe"/>
+                            <!-- Typography -->
+                            <text x="56" y="28" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="700" font-size="14px" letter-spacing="1px">AIR UNIVERSITY</text>
+                            <text x="56" y="44" fill="#a0aec0" font-family="'Inter', sans-serif" font-weight="400" font-size="9px" letter-spacing="0.5px">ISLAMABAD, PAKISTAN</text>
+                        </svg>
+                    </div>
+
+                    <!-- Department of Creative Technologies SVG Logo -->
+                    <div class="logo-item" title="Department of Creative Technologies">
+                        <svg viewBox="0 0 240 65" class="academic-logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Digital / Node Star Vector Logo -->
+                            <rect x="10" y="20" width="8" height="8" rx="1.5" fill="#7f00ff"/>
+                            <rect x="22" y="8" width="8" height="8" rx="1.5" fill="#00f2fe"/>
+                            <rect x="22" y="32" width="8" height="8" rx="1.5" fill="#00f2fe"/>
+                            <rect x="34" y="20" width="8" height="8" rx="1.5" fill="#7f00ff"/>
+                            <!-- Interconnecting Lines -->
+                            <line x1="18" y1="24" x2="22" y2="12" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="18" y1="24" x2="22" y2="36" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="30" y1="12" x2="34" y2="24" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="30" y1="36" x2="34" y2="24" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>
+                            <!-- Typography -->
+                            <text x="52" y="25" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="700" font-size="13px" letter-spacing="0.5px">DEPT OF CREATIVE</text>
+                            <text x="52" y="40" fill="#7f00ff" font-family="'Outfit', sans-serif" font-weight="700" font-size="13px" letter-spacing="0.5px">TECHNOLOGIES</text>
+                            <text x="52" y="52" fill="#a0aec0" font-family="'Inter', sans-serif" font-weight="400" font-size="8px" letter-spacing="0.5px">FACULTY OF COMPUTING</text>
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 PayPalm Biometrics Project. All Rights Reserved. Air University Creative Technologies Initiative.</p>
+        </div>
+    </footer>
+
+<!-- Admin Login Modal Overlay -->
+    <div class="admin-modal-overlay" id="adminLoginModal">
+        <div class="card glass-card admin-login-card" id="adminLoginCard">
+            <button class="close-modal-btn" id="closeAdminModal" title="Close Panel">&times;</button>
+            <div class="modal-header text-center">
+                <h3 style="font-size: 1.5rem; margin-bottom: 6px;">Admin Access Control</h3>
+                <p style="color: var(--color-text-grey); font-size: 0.85rem; margin-bottom: 20px;">Enter administrative credentials to unlock registration logs.</p>
+            </div>
+            <form id="adminLoginForm" novalidate>
+                <div class="form-group">
+                    <label for="adminEmail" style="font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 0.8rem; color: #fff;">Admin Email</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="adminEmail" placeholder="admin@paypalm.com" required style="width: 100%; padding: 12px 16px; background: rgba(3, 10, 22, 0.7); border: var(--glass-border); border-radius: 8px; color: #fff; outline: none;">
+                    </div>
+                </div>
+                <div class="form-group mt-4" style="margin-top: 14px;">
+                    <label for="adminPassword" style="font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 0.8rem; color: #fff;">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="adminPassword" placeholder="••••••••••••" required style="width: 100%; padding: 12px 16px; background: rgba(3, 10, 22, 0.7); border: var(--glass-border); border-radius: 8px; color: #fff; outline: none;">
+                    </div>
+                </div>
+                <span class="error-msg text-center mt-2" id="adminLoginError" style="display: none; color: var(--color-coral); font-size: 0.75rem; font-weight: 600; text-align: center; margin-top: 10px; text-shadow: 0 0 6px rgba(255, 94, 98, 0.3);">Invalid Admin Credentials.</span>
+                <button type="submit" class="btn btn-primary btn-block mt-6" style="margin-top: 20px; width: 100%;">Unlock Dashboard</button>
+                <div class="hint-text mt-4 text-center" style="margin-top: 16px; font-size: 0.72rem; color: var(--color-text-grey); text-align: center;">
+                    Demo Credentials: <br>Email: <strong>admin@paypalm.com</strong> | Password: <strong>admin_paypalm</strong>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Logic Script -->
+    <script src="app.js"></script>
+</body>
+</html>
