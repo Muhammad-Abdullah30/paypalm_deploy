@@ -387,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Creates dynamic anchor link and click-triggers file download of paypalm.apk
     const triggerApkDownload = () => {
-        const apkUrl = 'https://expo.dev/artifacts/eas/eenWcgeh9i9cmLSAXJAffD.apk';
+        const apkUrl = 'https://expo.dev/artifacts/eas/pzz677mXvF9tH37byPXdw5.apk';
         const link = document.createElement('a');
         link.href = apkUrl;
         link.download = 'paypalm.apk';
